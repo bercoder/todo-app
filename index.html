@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://bevacqua.github.io/dragula/dist/dragula.css">
+  <title>Frontend Mentor | TODO App</title>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>TODO</h1>
+      <button id="dark" title="Change to dark mode"></button>
+      <button id="light" title="Change to light mode"></button>
+    </div>
+  </header>
+  <div class="main-container">
+    <main>
+      <section class="new">
+        <div class="item">
+          <div class="item-empty-status"></div>
+          <div class="item-title">
+            <form id="form">
+              <input type="text" placeholder="Create a new todo..." />
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="item-list">
+        <div class="items"></div>
+        <div class="list-status">
+          <span id="count"></span>
+          <div class="buttons">
+            <button id="filterAll" class="active">All</button>
+            <button id="filterActive">Active</button>
+            <button id="filterCompleted">Completed</button>
+          </div>
+          <button id="clear">Clear Completed</button>
+        </div>
+      </section>
+
+      <p class="message">Drag and drop to reorder list</p>
+      <footer>    
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="https://github.com/bercoder">bercoder</a>.
+        </div>
+      </footer>
+    </main>
+ </div>
+  <script src='https://bevacqua.github.io/dragula/dist/dragula.js'></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root{
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --Check-Background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+    --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+    --Very-Dark-Blue: hsl(235, 21%, 11%);
+    --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+    --Light-Grayish-Blue2: hsl(234, 39%, 85%);
+    --Dark-Grayish-Blue2: hsl(234, 11%, 52%);
+    --Very-Dark-Grayish-Blue2: hsl(233, 14%, 35%);
+    --Very-Dark-Grayish-Blue3: hsl(237, 14%, 26%);
+    --max-width: 900px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body{
+    background-color: var(--Very-Light-Gray);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.8rem;
+    height: 100%;
+    transition: background-color 1s ease-out;
+}
+
+body.dark-mode{
+    background-color: var(--Very-Dark-Blue)
+}
+
+button{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header{  
+    width: 100%;
+    height: 200px;
+    background-image: url('../images/bg-mobile-light.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-image 1.5s ease-out;
+}
+
+.dark-mode header{  
+    background-image: url('../images/bg-mobile-dark.jpg');
+}
+
+header > div{
+    max-width: var(--max-width);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+header h1{
+    color: white;
+    letter-spacing: 1.2rem;
+}
+
+header button{
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: ease-out .3s;
+}
+
+header button#dark{
+    background-image: url('../images/icon-moon.svg');
+    background-repeat: no-repeat; 
+}
+
+header button#light{
+    background-image: url('../images/icon-sun.svg');
+    background-repeat: no-repeat;
+    display: none;
+    transition: ease-out .9s;
+}
+
+.dark-mode #dark{ display: none;}
+.dark-mode #light{ display: block;}
+
+header button#dark:hover{
+    transform: rotate(-15deg) scale(.8);
+}
+
+header button#light:hover{
+    transform: rotate(180deg);
+}
+
+.main-container{
+    max-width: var(--max-width);
+    position: relative;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto
+}
+
+main{
+    position: absolute;
+    width: 100%;
+    min-width: 375px;
+    top: -130px;
+}
+
+section{
+    border-radius: 15px;
+    background-color: white;
+    margin: 20px 0
+}
+
+.dark-mode section{
+    background-color: var(--Very-Dark-Desaturated-Blue);
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.item-list .item{
+    border-bottom: 1px solid var(--Very-Light-Grayish-Blue);
+}
+
+.dark-mode .item-list .item{
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue3);
+}
+
+.item-empty-status,
+.item-status {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--Very-Light-Grayish-Blue);
+}
+
+.dark-mode .item-empty-status,
+.dark-mode .item-status {
+    border: 1px solid var(--Very-Dark-Grayish-Blue3);
+}
+
+.item-status {
+    cursor: pointer;
+    transition: .3s ease-out;
+}
+
+.item-status:hover{
+    transform: scale(.8);
+    border-color: var(--Bright-Blue)
+}
+
+.item.completed .item-status{
+    background: url('../images/icon-check.svg'), var(--Check-Background);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.item-title{
+    flex-grow: 1;
+    margin: 0 10px;
+    color: var(--Very-Dark-Grayish-Blue);
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.dark-mode .item-title{
+    color: var(--Light-Grayish-Blue2)
+}
+
+.item-title input{
+    width: 100%;
+    border: 0;
+    color: var(--Very-Dark-Grayish-Blue);
+    font-size: 1.8rem;
+    outline: none;
+}
+
+input::placeholder{
+    color: var(--Light-Grayish-Blue);
+}
+
+.dark-mode input::placeholder{
+    color: var(--Very-Dark-Grayish-Blue);
+}
+
+.dark-mode .item-title input{
+    background-color: transparent;
+    color: var(--Light-Grayish-Blue2);
+    caret-color: var(--Bright-Blue)
+}
+
+.item.completed .item-title{
+    color: var(--Light-Grayish-Blue);
+    text-decoration: line-through;
+}
+
+.dark-mode .item.completed .item-title{
+    color: var(--Dark-Grayish-Blue2);
+}
+
+.item-delete{
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/icon-cross.svg');
+    background-repeat: no-repeat;
+    transition: .3s ease-out;
+}
+
+.item-delete:hover{
+    transform: rotate(90deg);
+}
+
+.item-delete:active{
+    transform: rotate(90deg) scale(.7);
+}
+
+.no-item p{
+    color: var(--Dark-Grayish-Blue);
+    width: 100%;
+    text-align: center;
+}
+
+.dark-mode .no-item p{
+    color: var(--Dark-Grayish-Blue2);
+}
+
+.delete{
+    animation: .5s ease-in deleting forwards
+}
+
+@keyframes deleting {
+    50%{
+        transform: scaleY(0.4);
+    }
+    to {
+        transform: scaleY(0) translateX(-700px);
+    }
+}
+
+.list-status{
+    position: relative;
+    color: var(--Dark-Grayish-Blue);
+    padding: 20px;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dark-mode .list-status{
+    color: var(--Dark-Grayish-Blue2);
+}
+
+.buttons button, .list-status button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--Dark-Grayish-Blue);
+}
+
+.dark-mode .buttons button, .list-status button{
+    color: var(--Dark-Grayish-Blue2);
+}
+
+.list-status button{
+    font-size: 1.4rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: -100px;
+    left: 0;
+    border-radius: 15px;
+    background-color: white;
+    margin: 20px 0
+}
+
+.dark-mode .buttons{
+    background-color: var(--Very-Dark-Desaturated-Blue)
+}
+
+.buttons button {
+    margin: 0 10px;
+    font-size: 1.8rem;
+}
+
+.buttons button.active {
+    color: var(--Bright-Blue)
+}
+
+.buttons button:hover, .list-status button:hover{
+    color: var(--Very-Dark-Grayish-Blue2)
+}
+
+.dark-mode .buttons button:hover, .dark-mode .list-status button:hover{
+    color: var(--Light-Grayish-Blue2);
+}
+
+p.message{
+    margin: 125px auto 50px;
+    text-align: center;
+    color: var(--Light-Grayish-Blue)
+}
+
+.dark-mode p.message{
+    color: var(--Dark-Grayish-Blue2);
+}
+
+footer{
+    width: 100%;
+    height: 30px;
+    font-size: 1.1rem; 
+    text-align: center; 
+}
+
+.dark-mode footer{
+    color: var(--Dark-Grayish-Blue)
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
+
+.gu-mirror{
+    background-color: #dadada;
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.dark-mode .gu-mirror{
+    background-color: #2b2d43;
+}
+
+@media (min-width: 500px) {
+    header{
+        background-image: url('../images/bg-desktop-light.jpg');
+    }
+
+    .dark-mode header{
+        background-image: url('../images/bg-desktop-dark.jpg');
+    }
+
+    p.message{
+        margin-top: 50px
+    }
+
+    .buttons{
+        position: initial;
+        margin: 0;
+        padding: 0;
+        width: auto
+    }
+}
