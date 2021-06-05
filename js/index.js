@@ -24,6 +24,7 @@ let data = [
 ]
 
 Form.addEventListener('submit', e => {
+    console.log("caalll submit")
     e.preventDefault()
     const text = Form.children[0].value
 
@@ -153,7 +154,9 @@ light.addEventListener('click', changeMode)
 
 render()
 
-dragula([List])
+Sortable.create(List, {
+    animation: 100
+  });
 
 
 
